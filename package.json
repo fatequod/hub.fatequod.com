@@ -1,0 +1,35 @@
+{
+  "name": "hub.fatequod.com",
+  "version": "1.0.0",
+  "description": "Knowledge Base Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm run start\" \"cd frontend && npm run start\"",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "import-content": "cd backend && npm run import-content",
+    "summarize-content": "cd backend && npm run summarize-content",
+    "force-summarize": "cd backend && npm run force-summarize",
+    "add-heading-ids": "cd backend && npm run add-heading-ids",
+    "import-and-summarize": "cd backend && npm run import-and-summarize",
+    "force-import-summarize": "cd backend && npm run force-import-summarize",
+    "prepare-content": "cd backend && npm run prepare-content",
+    "force-prepare": "cd backend && npm run force-prepare",
+    "import-and-start": "npm run import-content && npm run dev",
+    "full-update": "npm run import-and-summarize && npm run dev",
+    "complete-update": "npm run prepare-content && npm run dev",
+    "force-update": "npm run force-prepare && npm run dev",
+    "build": "cd frontend && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "openai": "^4.98.0"
+  }
+}

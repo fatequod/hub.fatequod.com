@@ -1,0 +1,373 @@
+.document-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-lg);
+  width: 100%;
+  transition: max-width var(--transition-normal);
+}
+
+.document-header {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.document-header h1 {
+  color: var(--color-heading);
+  margin-bottom: var(--space-sm);
+  word-break: break-word;
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  transition: color var(--transition-normal);
+}
+
+.document-meta {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.document-meta span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.document-meta svg {
+  width: 16px;
+  height: 16px;
+}
+
+.document-content {
+  line-height: 1.7;
+  color: var(--color-text);
+  transition: color var(--transition-normal);
+}
+
+/* Breadcrumbs navigation */
+.document-breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* Make all breadcrumb items have consistent styling */
+.document-breadcrumbs a.home-link,
+.document-breadcrumbs .folder,
+.document-breadcrumbs .current {
+  color: var(--color-text-light);
+  align-items: center;
+  font-size: 0.85rem;
+  border: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
+  padding-left: .5rem;
+}
+
+ul {
+  margin-left: 2.5rem;
+}
+
+p {
+  padding: 1em;
+}
+
+/* Only the home link should be clickable */
+.document-breadcrumbs a.home-link {
+  transition: color var(--transition-fast);
+}
+
+.document-breadcrumbs a.home-link:hover {
+  color: var(--color-primary);
+}
+
+.document-breadcrumbs .folder {
+  cursor: default;
+}
+
+.document-breadcrumbs .separator {
+  color: var(--color-text-light);
+  margin: 0 var(--space-xs);
+}
+
+.document-breadcrumbs .current {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Document actions */
+.document-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.document-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.document-action-button:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.document-action-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Summary styling */
+.document-content h1:first-child {
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--space-xl);
+  font-size: 1.5rem;
+  transition: background-color var(--transition-normal);
+}
+
+/* Special style for "Summarized by AI" heading */
+.document-content h1:first-child:contains("Summarized by AI"),
+.document-content h1[id="summarized-by-ai"] {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  margin-bottom: 0;
+}
+
+/* Style for summary content */
+.document-content h1:first-child + ul,
+.document-content h1:first-child + ol,
+.document-content h1:first-child + p,
+.document-content h1[id="summarized-by-ai"] + ul,
+.document-content h1[id="summarized-by-ai"] + ol,
+.document-content h1[id="summarized-by-ai"] + p {
+  margin-bottom: var(--space-xl);
+}
+
+/* For tables in markdown content */
+.document-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.document-content table th,
+.document-content table td {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: left;
+}
+
+.document-content table th {
+  background-color: #f8f9fa;
+}
+
+/* For code blocks in markdown content */
+.document-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.document-content code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Error styling */
+.error-container {
+  background-color: rgba(var(--color-error-rgb), 0.05);
+  border-left: 4px solid var(--color-error);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--space-lg);
+}
+
+.error-container h2 {
+  color: var(--color-error);
+  margin-bottom: var(--space-md);
+}
+
+.debug-info {
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--border-radius-md);
+  margin-top: var(--space-md);
+  font-family: var(--font-family-code);
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+}
+
+.home-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  margin-top: var(--space-md);
+  font-size: 0.95rem;
+  transition: background-color var(--transition-fast);
+}
+
+.home-button:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal), background-color var(--transition-fast);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Copy code button */
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  font-family: var(--font-family-code);
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.copy-button:hover {
+  color: var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
+}
+
+.document-content pre {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Target highlight effect */
+:target {
+  animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .document-container {
+    padding: var(--space-md);
+  }
+  
+  .document-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .document-meta {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .back-to-top {
+    bottom: var(--space-md);
+    right: var(--space-md);
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Smooth scrolling for the whole document */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Adjust main layout to work with the new navigation positioning */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .page-navigation {
+    width: 100%;
+    float: none;
+    padding-left: 0;
+    margin-top: var(--space-lg);
+  }
+} 
